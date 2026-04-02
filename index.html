@@ -1,67 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Zhaojuntao Zhao</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #0f172a;
-            color: white;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px;
-        }
-        h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
-        h2 {
-            margin-top: 40px;
-            border-bottom: 1px solid #444;
-            padding-bottom: 5px;
-        }
-        p {
-            line-height: 1.6;
-            color: #cbd5f5;
-        }
-        .highlight {
-            color: #38bdf8;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Zhaojuntao Zhao</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+        background: linear-gradient(135deg, #0f172a, #020617);
+        color: white;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: auto;
+        padding: 60px 20px;
+    }
+
+    h1 {
+        font-size: 56px;
+        font-weight: 700;
+    }
+
+    .subtitle {
+        font-size: 20px;
+        color: #38bdf8;
+        margin-top: 10px;
+    }
+
+    .desc {
+        margin-top: 15px;
+        color: #94a3b8;
+        line-height: 1.6;
+    }
+
+    h2 {
+        margin-top: 60px;
+        font-size: 28px;
+        border-bottom: 1px solid #1e293b;
+        padding-bottom: 10px;
+    }
+
+    /* 卡片 */
+    .card {
+        background: rgba(255,255,255,0.05);
+        border-radius: 16px;
+        padding: 20px;
+        margin-top: 20px;
+        backdrop-filter: blur(10px);
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        background: rgba(255,255,255,0.08);
+    }
+
+    /* 项目网格 */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .project {
+        background: rgba(255,255,255,0.05);
+        padding: 20px;
+        border-radius: 16px;
+        transition: 0.3s;
+    }
+
+    .project:hover {
+        transform: scale(1.03);
+        background: rgba(255,255,255,0.08);
+    }
+
+    .project-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .tag {
+        display: inline-block;
+        background: #1e293b;
+        padding: 4px 8px;
+        border-radius: 6px;
+        font-size: 12px;
+        margin-right: 5px;
+        margin-top: 5px;
+        color: #38bdf8;
+    }
+
+    .contact a {
+        color: #38bdf8;
+        text-decoration: none;
+    }
+
+    .contact a:hover {
+        text-decoration: underline;
+    }
+</style>
 </head>
+
 <body>
 
 <div class="container">
+
+    <!-- HERO -->
     <h1>赵骏涛</h1>
-    <p class="highlight">AI × Materials Science</p>
-    <p>Building intelligent systems for next-generation materials.</p>
+    <div class="subtitle">AI × Materials Science</div>
+    <p class="desc">
+        Building intelligent systems for next-generation materials.
+    </p>
 
+    <!-- ABOUT -->
     <h2>About Me</h2>
-    <p>
-        我专注于AI驱动的材料设计，结合机器学习与物理建模，
-        研究电池体系与多尺度模拟方法。
-    </p>
+    <div class="card">
+        <p>
+            我专注于AI驱动的材料设计，结合机器学习与物理建模，
+            研究电池体系、多尺度模拟与智能建模方法。
+            致力于用数据与模型加速材料发现过程。
+        </p>
+    </div>
 
+    <!-- SKILLS -->
     <h2>What I Do</h2>
-    <p>
-        • Graph Neural Networks (GNN)<br>
-        • Multiscale Modeling<br>
-        • Battery Materials Design
-    </p>
+    <div class="grid">
+        <div class="card">Battery Materials</div>
+        <div class="card">AI for Science</div>
+        div class="card">Multiscale Modeling</div>
+    </div>
 
+    <!-- PROJECTS -->
     <h2>Projects</h2>
-    <p>
-        🔬 Electrolyte AI Design Platform<br>
-        🤖 GNN-based Property Prediction<br>
-        ⚡ Cross-scale Simulation Framework
-    </p>
+    <div class="grid">
 
+        <div class="project">
+            <div class="project-title">Electrolyte AI Platform</div>
+            <p>AI-driven electrolyte design system.</p>
+            <div class="tag">Li-Battery</div>
+        </div>
+
+        <div class="project">
+            <div class="project-title">Property Prediction Model</div>
+            <p>Predicting ESW and CE using deep learning.</p>
+            <div class="tag">Deep Learning</div>
+        </div>
+
+        <div class="project">
+            <div class="project-title">Multiscale Simulation</div>
+            <p>Bridging atomistic and continuum modeling.</p>
+            <div class="tag">Simulation</div>
+        </div>
+
+    </div>
+
+    <!-- CONTACT -->
     <h2>Contact</h2>
-    <p>Email: your_email@example.com</p>
+    <div class="card contact">
+        <p>Email: 2401212755@stu.pku.edu.cn</p>
+        <p>GitHub: <a href="#">zhaojuntao-king</a></p>
+    </div>
+
 </div>
 
 </body>
