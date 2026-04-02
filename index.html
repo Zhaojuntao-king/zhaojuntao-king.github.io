@@ -5,37 +5,38 @@
 <title>Zhaojuntao Zhao</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+    background: #020617;
     color: white;
-    background: radial-gradient(circle at 20% 20%, #1e3a8a, transparent),
-                radial-gradient(circle at 80% 80%, #0ea5e9, transparent),
-                #020617;
     overflow-x: hidden;
 }
 
-/* 动态光效 */
+/* 鼠标光效 */
+.cursor-glow {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(56,189,248,0.25), transparent 60%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+/* 背景 */
 body::before {
     content: "";
     position: fixed;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(56,189,248,0.15), transparent 40%);
-    animation: move 20s linear infinite;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 20%, #1e3a8a, transparent),
+                radial-gradient(circle at 80% 80%, #0ea5e9, transparent);
+    z-index: 0;
 }
 
-@keyframes move {
-    0% { transform: translate(0,0); }
-    50% { transform: translate(-25%, -25%); }
-    100% { transform: translate(0,0); }
-}
-
+/* 容器 */
 .container {
     max-width: 1100px;
     margin: auto;
@@ -46,35 +47,44 @@ body::before {
 
 /* HERO */
 .hero {
-    text-align: center;
-    margin-bottom: 80px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
-h1 {
-    font-size: 64px;
-    font-weight: 800;
+.avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3px solid #38bdf8;
+    object-fit: cover;
+}
+
+.hero-text h1 {
+    font-size: 52px;
 }
 
 .subtitle {
-    font-size: 22px;
     color: #38bdf8;
-    margin-top: 15px;
+    margin-top: 10px;
+    font-size: 20px;
 }
 
 .desc {
-    margin-top: 15px;
+    margin-top: 10px;
     color: #94a3b8;
 }
 
 /* 按钮 */
 .button {
     display: inline-block;
-    margin-top: 25px;
-    padding: 12px 24px;
+    margin-top: 20px;
+    padding: 10px 20px;
     border-radius: 10px;
     background: linear-gradient(90deg, #38bdf8, #6366f1);
-    color: white;
     text-decoration: none;
+    color: white;
     transition: 0.3s;
 }
 
@@ -86,7 +96,6 @@ h1 {
 /* 标题 */
 h2 {
     margin-top: 60px;
-    font-size: 28px;
 }
 
 /* 卡片 */
@@ -94,8 +103,8 @@ h2 {
     background: rgba(255,255,255,0.06);
     border-radius: 20px;
     padding: 25px;
-    backdrop-filter: blur(15px);
     margin-top: 20px;
+    backdrop-filter: blur(15px);
 }
 
 /* 网格 */
@@ -114,12 +123,11 @@ h2 {
 }
 
 .project:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-8px);
     background: rgba(255,255,255,0.1);
 }
 
 .project-title {
-    font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -127,42 +135,39 @@ h2 {
 .tag {
     display: inline-block;
     font-size: 12px;
-    padding: 5px 8px;
+    padding: 4px 8px;
     background: #1e293b;
     border-radius: 6px;
-    margin-top: 6px;
+    margin-top: 5px;
     color: #38bdf8;
-}
-
-.contact a {
-    color: #38bdf8;
-    text-decoration: none;
 }
 </style>
 </head>
 
 <body>
 
+<div class="cursor-glow" id="glow"></div>
+
 <div class="container">
 
     <!-- HERO -->
     <div class="hero">
-        <h1>赵骏涛</h1>
-        <div class="subtitle">AI × Materials Science</div>
-        <p class="desc">
-            Building intelligent systems for next-generation materials.
-        </p>
+        <img src="avatar.jpg" class="avatar">
 
-        <a class="button" href="#">View My Work</a>
+        <div class="hero-text">
+            <h1>赵骏涛</h1>
+            <div class="subtitle">AI × Materials Science</div>
+            <p class="desc">
+                Building intelligent systems for next-generation materials.
+            </p>
+            <a class="button" href="#">View My Work</a>
+        </div>
     </div>
 
     <!-- ABOUT -->
     <h2>About</h2>
     <div class="card">
-        <p>
-            我专注于AI驱动的材料设计，研究方向包括GNN、多尺度建模与电池体系。
-            致力于通过机器学习与物理建模融合，加速材料发现与性能优化。
-        </p>
+        我专注于AI驱动的材料设计，研究GNN、多尺度建模与电池体系。
     </div>
 
     <!-- SKILLS -->
@@ -174,39 +179,16 @@ h2 {
         <div class="card">AI for Science</div>
     </div>
 
-    <!-- PROJECTS -->
-    <h2>Projects</h2>
-    <div class="grid">
-
-        <div class="project">
-            <div class="project-title">Electrolyte AI Platform</div>
-            <p>AI-driven electrolyte design system.</p>
-            <div class="tag">GNN</div>
-            <div class="tag">Battery</div>
-        </div>
-
-        <div class="project">
-            <div class="project-title">Property Prediction</div>
-            <p>Deep learning for ESW prediction.</p>
-            <div class="tag">Deep Learning</div>
-        </div>
-
-        <div class="project">
-            <div class="project-title">Multiscale Simulation</div>
-            <p>Bridging atomistic and continuum modeling.</p>
-            <div class="tag">Simulation</div>
-        </div>
-
-    </div>
-
-    <!-- CONTACT -->
-    <h2>Contact</h2>
-    <div class="card contact">
-        <p>Email: your_email@example.com</p>
-        <p>GitHub: <a href="#">your_github_link</a></p>
-    </div>
-
 </div>
+
+<script>
+const glow = document.getElementById("glow");
+
+document.addEventListener("mousemove", e => {
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+});
+</script>
 
 </body>
 </html>
